@@ -1,0 +1,17 @@
+<h1>Mini Blog</h1>
+<p>
+    <%= form_for(@blog) do |f| %>
+    <%= f.label "本文" %>
+    <%= f.text_field :body %>
+    
+    <%= f.submit "投稿する", class: "btn btn-primary" %>
+<% end %>
+</p>
+<% @blogs.reverse_each do |blog| %>
+    <ul>
+        <li>id:<%= blog.id %></li>
+        <li>本文:<%= blog.body %></li>
+        <li>いいね:<%= blog.like %></li>
+        <li>投稿日時:<%= blog.created_at %></li>
+    </ul>
+<% end %>
