@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   def index
-    @blogs = Blog.where('created_at > ?', 0)
+    @blogs = Blog.where('id > ?', 0)
     @blog = Blog.new
   end
   
@@ -19,6 +19,13 @@ class BlogsController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def like
+    @blog = Blog.find(params[:id])
+    @blog.like += 1
+    @blog.save
+    redirect_back fallback_location: root_path
   end
   
   private
