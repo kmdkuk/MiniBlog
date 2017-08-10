@@ -1,0 +1,2 @@
+class Replie < ApplicationRecord
+end

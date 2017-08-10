@@ -6,6 +6,8 @@ class BlogsController < ApplicationController
   
   def show
     @blog = Blog.find(params[:id])
+    @replie = Replie.new
+    @replies = Replie.where('blog_id = ?', params[:id])
   end
   
   def new

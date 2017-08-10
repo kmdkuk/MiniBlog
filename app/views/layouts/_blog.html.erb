@@ -2,5 +2,6 @@
     <li><%= link_to "id:#{blog.id}", controller: "blogs", action: "show", id: blog %></li>
     <li>本文:<%= blog.body %></li>
     <li><%= link_to "いいね", controller: "blogs", action: "like", id: blog %>：<%= blog.like %></li>
+    <li>コメント：<%= Replie.where('blog_id = ?', blog.id).count%></li>
     <li>投稿日時:<%= blog.created_at %></li>
 </ul>

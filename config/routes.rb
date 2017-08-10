@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/blogs/new',      to: 'blogs#new'
   get '/blogs/like/:id', to: 'blogs#like'
   post '/blogs',         to: 'blogs#create'
+  post'/blogs/show/:id/replie', to: 'replies#create'
 end

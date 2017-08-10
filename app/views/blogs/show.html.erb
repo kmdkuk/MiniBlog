@@ -1,1 +1,13 @@
 <%= render 'layouts/blog', blog: @blog %>
+<%= form_for(@replie, url: "/blogs/show/#{@blog.id}/replie" ) do |f| %>
+    <%= f.label "コメント" %>
+    <%= f.text_field :comment %>
+    
+    <%= f.submit "投稿する", class: "btn btn-primary" %>
+<% end %>
+<% @replies.reverse_each do |replie| %>
+<ul>
+    <li>コメント:<%= replie.comment %></li>
+    <li>投稿日時:<%= replie.created_at %></li>
+</ul>
+<% end %>

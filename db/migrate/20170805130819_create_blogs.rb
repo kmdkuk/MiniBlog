@@ -4,7 +4,7 @@ class CreateBlogs < ActiveRecord::Migration[5.0]
       t.string :body
       t.integer :like, default: 0
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
